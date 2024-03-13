@@ -1,10 +1,11 @@
+import styles from "./styles.module.css";
 
-export default function Workouts() {
+export default function Home() {
   return (
     <div>
       <div class="mainText" style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
         <h1>
-          Workouts
+          HealthTrack
         </h1>
     </div>
   </div>
