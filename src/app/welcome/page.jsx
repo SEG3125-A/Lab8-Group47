@@ -1,13 +1,23 @@
-import styles from "./styles.module.css";
+import styles from './styles.module.css';
+import '@fontsource/kanit/300.css';
+import '@fontsource/kanit/400.css';
 
 export default function Home() {
   return (
     <div>
-      <div class="mainText" style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
+      <div className={styles.mainText} >
         <h1>
-          HealthTrack
+          Health
         </h1>
-    </div>
+        <h1 className={styles.trackText}>
+          Track
+        </h1>
+      </div>
+      <div className={styles.descriptionText}>
+        <p>
+          Sign up and start your fitness journey today!
+        </p>
+      </div>
   </div>
   );
 }

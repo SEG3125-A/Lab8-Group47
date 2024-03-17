@@ -1,6 +1,28 @@
 .mainText{
-  height: 100vh; /* Magic here */
+  font-family: 'Kanit';
+  color: rgba(62, 70, 83, 1);
+  font-size: 48px;
+  font-weight: 500;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 280px;
+  line-height: 0px;
+}
+
+.trackText{
+  font-family: 'Kanit';
+  color: rgba(62, 70, 83, 0.6);
+  font-size: 96px;
+  font-weight: 300;
+}
+
+.descriptionText{
+  font-family: 'Kanit';
+  line-height: 0px;
+  font-size: 24px;
+  font-weight: 200;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  padding-top: 0px;
 }
