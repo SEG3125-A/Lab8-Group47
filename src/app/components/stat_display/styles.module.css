@@ -1,0 +1,55 @@
+/* Large Variant */
+
+.main_lg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 8px;
+    padding: 0px;
+    flex-wrap: nowrap;
+}
+
+.name_lg {
+    color: rgba(161, 171, 185, 1);
+    font-family: 'Inter';
+    font-size: 24px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.value_lg {
+    color: rgba(62, 70, 83, 1);
+    font-family: 'Inter';
+    font-size: 48px;
+    font-weight: 600;
+}
+
+
+/* Small Variant */
+
+.main_sm {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 8px;
+    padding: 0px;
+    flex-wrap: nowrap;
+}
+
+.name_sm {
+    color: rgba(161, 171, 185, 1);
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.value_sm {
+    color: rgba(62, 70, 83, 1);
+    font-family: 'Inter';
+    font-size: 28px;
+    font-weight: 400;
+}
+
