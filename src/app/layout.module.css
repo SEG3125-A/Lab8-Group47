@@ -8,3 +8,9 @@
     background-size: cover;
     height: 100vh;
 }
+
+.pageContent {
+    padding-top: 56px;
+    height: calc(100% - 56px);
+    width: 100%;
+}

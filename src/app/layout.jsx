@@ -13,7 +13,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={styles.html}>
       <body className={styles.body}>
         <Navbar/>
-        {children}
+        <div className={styles.pageContent}>
+            {children}
+        </div>
       </body>
     </html>
   );
