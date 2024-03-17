@@ -1,26 +1,42 @@
-.mainText{
-  font-family: 'Kanit';
-  color: rgba(62, 70, 83, 1);
-  font-size: 48px;
-  font-weight: 500;
-  display: flex;
-  justify-content: center;
-  margin-top: 280px;
-  line-height: 0px;
+@font-face {
+    font-family: 'Kanit';
+    src: local('Kanit'), url(/node_modules/next/font/google) format('woff2');
 }
 
-.trackText{
+.pageBody {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    padding: 0px;
+    flex-wrap: nowrap;
+}
+
+.mainText {
+  font-family: 'Kanit';
+  color: rgba(62, 70, 83, 1);
+  font-size: 120px;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+}
+
+.trackText {
   font-family: 'Kanit';
   color: rgba(62, 70, 83, 0.6);
-  font-size: 96px;
+  font-size: 120px;
   font-weight: 300;
 }
 
 .descriptionText{
-  font-family: 'Kanit';
+  font-family: 'Inter';
   line-height: 0px;
-  font-size: 24px;
-  font-weight: 200;
+  font-size: 32px;
+  font-weight: normal;
+  color: rgba(62, 70, 83, 1);
   display: flex;
   justify-content: center;
   margin-top: 0px;

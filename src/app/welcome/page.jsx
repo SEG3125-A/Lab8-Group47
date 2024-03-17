@@ -1,17 +1,16 @@
 import styles from './styles.module.css';
-import '@fontsource/kanit/300.css';
-import '@fontsource/kanit/400.css';
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.pageBody}>
       <div className={styles.mainText} >
-        <h1>
+        {/* TODO: Convert these elements back to h1 when we figure out how to override defualt h1 styles */}
+        <div> 
           Health
-        </h1>
-        <h1 className={styles.trackText}>
+        </div>
+        <div className={styles.trackText}>
           Track
-        </h1>
+        </div>
       </div>
       <div className={styles.descriptionText}>
         <p>
