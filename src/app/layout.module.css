@@ -6,11 +6,11 @@
 .body {
     background-image: url('../assets/background.svg');
     background-size: cover;
-    height: 100vh;
+    height: 100%;
 }
 
 .pageContent {
     padding-top: 56px;
-    height: calc(100% - 56px);
+    height: calc(100% - 104px);
     width: 100%;
 }

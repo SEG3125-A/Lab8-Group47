@@ -1,16 +1,22 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.css';
 
 
 export default function Workouts() {
   return (
     <div className={styles.pageBody}>
-      <div className={styles.mainText} >
-        <div> 
-          Workout History
+      <div className={styles.addWorkoutButton} >
+        <div className={styles.plusLogo} >
+          <FontAwesomeIcon icon={faPlus} />
         </div>
       </div>
+      <div className={styles.mainText} >
+          Workout History
+      </div>
+      <div className="workoutView">
       <div className={styles.workout} >
         <div className={styles.workoutInformation} >
           <div className={styles.informationEntry} >
@@ -23,18 +29,18 @@ export default function Workouts() {
           </div>
           <div className={styles.informationEntry} >
             <div className={styles.informationEntryLabel} >
-              TIME (STARTED)
+              TIME (START)
             </div>
             <div className={styles.informationEntryValue} >
-              3:00 PM
+              3:00PM
             </div>
           </div>
           <div className={styles.informationEntry} >
             <div className={styles.informationEntryLabel} >
-              EXERCISE TYPE
+              EXERCISE
             </div>
             <div className={styles.informationEntryValue} >
-              Pushups
+              Push Ups
             </div>
           </div>
           <div className={styles.informationEntry} >
@@ -47,19 +53,24 @@ export default function Workouts() {
           </div>
           <div className={styles.informationEntry} >
             <div className={styles.informationEntryLabel} >
-              REPS (Per Set)
+              REPS (PER SET)
             </div>
             <div className={styles.informationEntryValue} >
-              15
+              12
             </div>
           </div>
         </div>
-      </div>
-      <div className={styles.addWorkoutButton} >
-        <div className={styles.plusLogo} >
-          <FontAwesomeIcon icon={faPlus} />
+        <div className={styles.buttonView} >
+          <div className={styles.editButton} >
+            <FontAwesomeIcon icon={faCog} />          
+          </div>
+          <div className={styles.deleteButton} >
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </div>
         </div>
       </div>
+     </div> 
     </div>
+
   );
 }
