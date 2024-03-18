@@ -69,8 +69,7 @@ export default function Workouts() {
           </div>
         </div>
       </div>
-     </div> 
+     </div>
     </div>
-
   );
 }

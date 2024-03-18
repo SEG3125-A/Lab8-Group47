@@ -19,14 +19,14 @@ export default function Navbar() {
             <div className={styles.right}>
                 <MyButton 
                     onClick={() => router.push('/login')}
-                    style={{backgroundColor: "rgba(49, 233, 178, 1)"}}
+                    style={{backgroundColor: "rgba(49, 233, 178, 1)", fontFamily: 'sans-serif'}}
                     size='sm'
                 >
                     Login
                 </MyButton>
                 <MyButton 
                     onClick={() => router.push('/signup')}
-                    style={{backgroundColor: "rgba(96, 252, 162, 1)"}}
+                    style={{backgroundColor: "rgba(96, 252, 162, 1)", fontFamily: 'sans-serif'}}
                     size='sm'
                 >
                     Sign Up

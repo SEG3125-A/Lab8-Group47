@@ -13,7 +13,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.descriptionText}>
-        <p>
+        <p style={{fontFamily: 'sans-serif'}}>
           Sign up and start your fitness journey today!
         </p>
       </div>
