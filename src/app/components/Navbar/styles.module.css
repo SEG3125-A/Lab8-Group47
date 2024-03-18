@@ -1,0 +1,87 @@
+@font-face {
+    font-family: 'Kanit';
+    src: local('Kanit'), url(/node_modules/next/font/google) format('woff2');
+}
+
+.Navbar {
+    height: 56px;
+    background-color: rgba(253, 253, 253, 0.85);
+    box-shadow: 0px 4px 6px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 24px;
+    flex-wrap: nowrap;
+}
+
+/* Left side of the Navbar */
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.logo {
+    width: 24px;
+    height: 20.58px;
+}
+
+.siteName {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding: 0px 8px;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.health {
+    margin: 0;
+    color: rgba(62, 70, 83, 1);
+    font-family: 'Kanit';
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.track {
+    margin: 0;
+    color: rgba(62, 70, 83, 0.6);
+    font-family: 'Kanit';
+    font-size: 24px;
+    font-weight: 300;
+}
+
+
+/* Right side of the Navbar */
+
+.right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 0px 12px;
+}
+
+.link {
+    color: rgba(7, 181, 147, 0.6);
+    font-size: 20px;
+    font-weight: 300;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+.activeLink {
+    color: rgba(7, 181, 147, 1);
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: capitalize;
+}
