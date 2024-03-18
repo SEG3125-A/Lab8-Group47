@@ -1,7 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles.module.css';
-import { symlink } from 'fs';
 
 
 export default function Workouts() {
