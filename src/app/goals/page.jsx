@@ -34,7 +34,7 @@ const goals = [
             </div>
           ))}
 
-            <Link href="/goals/add" >
+            <Link href="/goals/new" >
                 <div className="wrapper">
                     <div className="add-icon">
                     +
