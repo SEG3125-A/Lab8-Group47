@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.css'; // Import external CSS file
 
-export default function DataEntryForm() {
+export default function AddGoals() {
   return (
 <>
   <meta charSet="UTF-8" />

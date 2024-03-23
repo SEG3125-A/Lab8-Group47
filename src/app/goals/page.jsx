@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { Link } from 'react-router-dom';
+import Link from "next/link";
 
 export default function Goals() {
 
@@ -18,8 +18,6 @@ const goals = [
         <div className="container" style={{ overflowX: 'auto' }}>
           
           <h2>My Goals</h2>
-          
-
 
           {/* Map through the goals array and render each goal */}
           {goals.map((goal, index) => (
@@ -36,13 +34,13 @@ const goals = [
             </div>
           ))}
 
-            <a href="/addGoals">
-              <div class="wrapper">
-                <div class="add-icon">
-                  +
+            <Link href="/goals/add" >
+                <div className="wrapper">
+                    <div className="add-icon">
+                    +
+                    </div>
                 </div>
-              </div>
-            </a>
+            </Link>
 
         </div>
       </div>
