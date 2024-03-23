@@ -88,3 +88,23 @@
     text-decoration: none;
     text-transform: capitalize;
 }
+
+
+/* Account Icon */
+
+.iconContainer {
+    width: 28px;
+    height: 28px;
+}
+
+.iconLink {
+    width: 28px;
+    height: 28px;
+    color: rgba(7, 181, 147, 0.6);
+}
+
+.activeIconLink {
+    width: 28px;
+    height: 28px;
+    color: rgba(7, 181, 147, 1);
+}
