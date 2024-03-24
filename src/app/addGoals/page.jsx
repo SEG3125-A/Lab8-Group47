@@ -1,7 +1,35 @@
-import React from 'react';
-import './styles.css'; // Import external CSS file
+"use client"
 
-export default function DataEntryForm() {
+import React from 'react';
+import styles from './styles.module.css'; // Import external CSS file
+
+export default function DataEntryForm(searchParams) {
+  const goals = localStorage.getItem('goals');
+  const goalsArray = JSON.parse(goals);
+
+  const handleAddButtonClick = () => {
+
+    // Get data from input fields and dropdown
+    const selectedExercise = document.getElementById('dropdown').value;
+    const totalSets = document.getElementById('total-sets').value;
+    const repsPerSet = document.getElementById('reps-per-set').value;
+
+    // Construct an object with the collected data
+    const newData = {
+      title: selectedExercise,
+      totalSets: parseInt(totalSets),
+      repsPerSet: parseInt(repsPerSet)
+    };
+
+    goalsArray.push(newData);
+    localStorage.setItem('goals', JSON.stringify(goalsArray));
+
+    const storedData = localStorage.getItem('goals');
+
+    window.location.href = '/goals';
+
+  };
+
   return (
 <>
   <meta charSet="UTF-8" />
@@ -9,32 +37,31 @@ export default function DataEntryForm() {
   <title>Dropdown Inside White Rectangle</title>
   <link rel="stylesheet" href="styles.css" /> {/* Link to external CSS file */}
   {/* Big white rectangle with dropdown */}
-  <div className="white-rectangle">
-    <div className="dropdown-header">Select an Exercise</div>{" "}
+  <div className={styles.whiteRectangle}>
+    <div className={styles.dropdownHeader}>Select an Exercise</div>{" "}
     {/* Dropdown header */}
-    <div className="dropdown-container">
+    <div className={styles.dropdownContainer}>
       {" "}
       {/* Dropdown container */}
-      <select id="dropdown">
-        <option value="option1">Squats</option>
-        <option value="option2">Burpees</option>
-        <option value="option3">Jumping jacks</option>
+      <select className={styles.dropdown} id="dropdown">
+        <option value="Squats">Squats</option>
+        <option value="Burpees">Burpees</option>
+        <option value="Jumping jacks">Jumping jacks</option>
         {/* Add more options as needed */}
       </select>
     </div>
-<div className="data-entry-container">
-  <div className="data-entry-item">
-    <label htmlFor="total-sets">Total Sets:</label>
-    <input type="number" id="total-sets" name="total-sets" />
+<div className={styles.dataEntryContainer}>
+  <div className={styles.dataEntryItem}>
+    <label className={styles.label} htmlFor="total-sets">Total Sets:</label>
+    <input className={styles.inputNumber} type="number" id="total-sets" name="total-sets" />
   </div>
-  <div className="data-entry-item">
-    <label htmlFor="reps-per-set">Reps per Set:</label>
-    <input type="number" id="reps-per-set" name="reps-per-set" />
+  <div className={styles.dataEntryItem}>
+    <label className={styles.label} htmlFor="reps-per-set">Reps per Set:</label>
+    <input className={styles.inputNumber} type="number" id="reps-per-set" name="reps-per-set" />
   </div>
 </div>
-      <div className="button-container">
-        <button className="edit-button">Add</button>
-        <button className="delete-button">Delete</button>
+      <div className={styles.buttonContainer}>
+        <button className={styles.editButton} onClick={handleAddButtonClick}>Add</button>
       </div>
 
 
