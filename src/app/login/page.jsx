@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from 'next/navigation';
-import './styles.css';
+import './styles.module.css';
 export default function Login() {
   const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
