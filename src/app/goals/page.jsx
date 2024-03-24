@@ -32,8 +32,7 @@ export default function Goals(searchParams) {
 
   return (
     <div>
-
-      <div className={styles.mainText} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <div className={styles.container} style={{ overflowX: 'auto' }}>
           
           <h2>My Goals</h2>
