@@ -63,13 +63,13 @@ export default function Goals(searchParams) {
                 </div>
               ))}
 
-            </div>
-
-              <div className={styles.wrapper} onClick={handleClick}>
-                <div className={styles.addIcon}>
-                  +
+            <Link href="/goals/new" >
+                <div className={styles.wrapper}>
+                    <div className={styles.addIcon}>
+                    +
+                    </div>
                 </div>
-              </div>
+            </Link>
 
         </div>
       </div>
