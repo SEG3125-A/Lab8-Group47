@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Database Setup
+
+This application uses a PostgreSQL database, managed through the Prisma ORM. For everything to run properly, you'll need to download [PostgreSQL](https://www.postgresql.org/) and complete the following steps.
+
+1. Once the PostgreSQL installer is downloaded, install using the defualt configurations. See [this guide](https://www.prisma.io/dataguide/postgresql/setting-up-a-local-postgresql-database#setting-up-postgresql-on-windows) for more details.
+2. Using pgAdmin4 (which is installed alongside PostgreSQL by default), create a database called "SEG3125-G47-Lab8" on the default "PostgreSQL 16" server.
+3. Run `npm i` to ensure all the latest project dependencies are installed.
+4. Run `npx prisma migrate dev --name init` to create the required tables in the "SEG3125-G47-Lab8" database.
+5. Run `npx prisma generate` to generate a prisma client that is tailored to our database. Along with simply being a requirement for the ORM to work, this is what provides us with code-completion that is specific to the structure of our database.
+
 ## Getting Started
 
 First, run the development server:

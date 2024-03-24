@@ -2,13 +2,15 @@
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from 'next/navigation';
 import './styles.css';
+
+
 export default function SignUp() {
   const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
     const [email, setEmail] = useState("");
     const router = useRouter()
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
 
       event.preventDefault();
 
@@ -21,10 +23,28 @@ export default function SignUp() {
         return
       }
 
+      const data = { email: email, pw: password };
+
+    const res = await fetch('http://localhost:3000/signup/api', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
+
       console.log(
         `Submitted username: ${username}, password: ${password}, email: ${email}`
       );
-      router.push('/login');
+    //   router.push('/login');
 
     };
 

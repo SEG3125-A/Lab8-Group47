@@ -11,6 +11,6 @@
 
 .pageContent {
     padding-top: 56px;
-    height: calc(100% - 104px);
+    height: calc(100vh - 56px);
     width: 100%;
 }
