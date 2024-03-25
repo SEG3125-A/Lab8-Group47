@@ -6,6 +6,8 @@ import './styles.module.css';
 import { At } from 'react-bootstrap-icons';
 import { Key } from 'react-bootstrap-icons';
 import MyButton from '../components/button/Button.tsx';
+import store from '../store.ts';
+import { Languages } from "../store.ts";
 
 export default function SignUp() {
   const [username, setUsername] = useState("");
@@ -47,11 +49,15 @@ export default function SignUp() {
   return (
     <div className={styles.pageBody}>
       <div className={styles.alignment}>
-        <div className={styles.mainText}>Create a New Account!</div> 
+        <div className={styles.mainText}>
+          {store.language === Languages.English ? "Create a New Account!" : "Créer un nouveau compte!"}
+        </div> 
         <div className={styles.loginBox}>
           <div className={styles.textFields}>
             <div className={styles.emailField}>
-              <div className={styles.label}>EMAIL</div>
+              <div className={styles.label}>
+                EMAIL
+              </div>
               <div className={styles.selectionBox}>
                 <div className={styles.boxContent}>
                   <div className={styles.symbol}>
@@ -65,21 +71,25 @@ export default function SignUp() {
               </div>
             </div>
             <div className={styles.passwordField}>
-              <div className={styles.label}>PASSWORD</div>
-                <div className={styles.selectionBox}>
-                  <div className={styles.boxContent}>
-                      <div className={styles.symbol}>
-                        <Key size="24"/>
-                      </div>
-                      <div className={styles.textBox}>
-                        <input className={styles.input} autoComplete="off" placeholder="Password" value={password} onChange={handlePasswordConfirmChange}></input>
-                      </div>
-                  </div>
-                  <div className={styles.underline}/>
+              <div className={styles.label}>
+                {store.language === Languages.English ? "PASSWORD" : "MOT DE PASSE"}
+              </div>
+              <div className={styles.selectionBox}>
+                <div className={styles.boxContent}>
+                    <div className={styles.symbol}>
+                      <Key size="24"/>
+                    </div>
+                    <div className={styles.textBox}>
+                      <input className={styles.input} autoComplete="off" placeholder="Password" value={password} onChange={handlePasswordConfirmChange}></input>
+                    </div>
                 </div>
+                <div className={styles.underline}/>
+              </div>
             </div>
             <div className={styles.passwordField}>
-              <div className={styles.label}>CONFIRM PASSWORD</div>
+              <div className={styles.label}>
+                {store.language === Languages.English ? " CONFIRM PASSWORD" : "Confirmez le mot de passe"}
+              </div>
                 <div className={styles.selectionBox}>
                   <div className={styles.boxContent}>
                       <div className={styles.symbol}>
@@ -98,7 +108,9 @@ export default function SignUp() {
               onClick={handleSubmit}
               style={{backgroundColor: "rgba(49, 233, 178, 1)", fontFamily: 'sans-serif'}}
               size='sm'
-            > SUBMIT </MyButton>
+            > 
+              {store.language === Languages.English ? "SUBMIT" : "ENVOYER"}
+            </MyButton>
             <div className={styles.helpText}></div>
           </div>
         </div>
