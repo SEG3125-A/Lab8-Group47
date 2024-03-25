@@ -1,7 +1,7 @@
 "use client"
 import React, { ReactNode, useState } from 'react';
 import styles from './styles.module.css'; // Import external CSS file
-import store, { ExerciseType, EXERCISES } from '../../store'
+import store, { ExerciseType, EXERCISES, Languages } from '../../store'
 import { observer } from 'mobx-react';
 
 
@@ -41,7 +41,9 @@ function NewGoal() {
     {/* Big white rectangle with dropdown */}
     <div className={styles.whiteRectangle}>
 
-        <div className={styles.dropdownHeader}>Select an Exercise</div>{" "}
+        <div className={styles.dropdownHeader}>
+            {store.language === Languages.English ? "Select an Exercise" : "Sélectionnez un exercice"}
+        </div>{" "}
 
         {/* Dropdown */}
         <div className={styles.dropdownContainer}>
@@ -54,17 +56,23 @@ function NewGoal() {
         </div>
             <div className={styles.dataEntryContainer}>
             <div className={styles.dataEntryItem}>
-                <label className={styles.label}>Total Sets:</label>
+                <label className={styles.label}>
+                    {store.language === Languages.English ? "Total Sets:" : "Ensembles totaux:"}
+                </label>
                 <input className={styles.inputNumber} type="number" value={sets} onChange={handleSetsChange} />
             </div>
             <div className={styles.dataEntryItem}>
-                <label className={styles.label}>Reps per Set:</label>
+                <label className={styles.label}>
+                    {store.language === Languages.English ? "Reps per Set:" : "Répétitions par série :"}
+                </label>
                 <input className={styles.inputNumber} type="number" value={reps} onChange={handleRepsChange} />
             </div>
             </div>
 
         <div className={styles.buttonContainer}>
-            <button className={styles.editButton} onClick={handleAddButtonClick}>Add</button>
+            <button className={styles.editButton} onClick={handleAddButtonClick}> 
+                {store.language === Languages.English ? "Add" : "Adjouter"}
+            </button>
         </div>
 
     </div>

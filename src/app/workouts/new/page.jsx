@@ -4,7 +4,6 @@ import styles from './styles.module.css';
 import Link from 'next/link';
 import store from '../../store.ts';
 import { Languages } from '../../store.ts';
-
 import { Plus } from 'react-bootstrap-icons';
 
 export default function NewWorkout() {
