@@ -3,13 +3,17 @@ import styles from "./styles.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-export type WorkoutProps = {
-    style?: React.CSSProperties;
+export type WorkoutData = {
     date: string;
     time: string;
     exercise: String;
     sets: number;
     reps: number;
+}
+
+export type WorkoutProps = {
+    style?: React.CSSProperties;
+    data: WorkoutData;
 }
 
 export default function Workout(props: WorkoutProps) {

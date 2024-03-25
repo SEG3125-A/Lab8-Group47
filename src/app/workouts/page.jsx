@@ -1,44 +1,39 @@
-import {Workout} from "../components/workout/Workout";
-import {WorkoutProps} from "../components/workout/Workout";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import styles from './styles.module.css';
 import React from 'react';
+import styles from './styles.module.css';
+import Link from 'next/link';
+import store from '../store.ts'
 
+import Workout from './components/workout';
+import { Plus } from 'react-bootstrap-icons';
 
 export default function Workouts() {
-  const myWorkouts = [
-    {
+  const myWorkouts = {
         date: "2024-03-25",
         time: "10:00 AM",
         exercise: "Push-ups",
         sets: 3,
         reps: 10
-    },
-  ];
+  };
 
   return (
     <div className={styles.pageBody}>
-      <div className={styles.addWorkoutButton} >
-        <div className={styles.plusLogo} >
-          <FontAwesomeIcon icon={faPlus} />
-        </div>
-      </div>
       <div className={styles.mainText} >
           Workout History
       </div>
       <div className={styles.workoutView}>
+        <Workout data={myWorkouts} key={myWorkouts.reps} />
         {/* Check if myWorkouts array is populated */}
-        {myWorkouts.length > 0 ? (
-          myWorkouts.map((workout, index) => (
-            <Workout key={index} {...workout}/>
+        {1 > 2 ? (
+          store.workouts.map((workout, index) => (
+            <Workout data={workout} key={workout.id}/>
           ))
         ) : (
           <div className={styles.mainText}>Add your first workout!</div>
         )}
       </div>
+      <Link href="/workouts/new" className={styles.newWorkout}>
+        <Plus className={styles.plusIcon}/>
+      </Link>
     </div>
   );
 }
