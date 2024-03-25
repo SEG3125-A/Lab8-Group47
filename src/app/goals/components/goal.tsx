@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { ExerciseType } from "../../store";
+import { ExerciseType, Languages } from "../../store";
 import store from "../../store";
 import StatDisplay from "../../components/stat_display/StatDisplay";
 
@@ -32,11 +32,11 @@ export default function Goal(props: GoalProps) {
             {/* Bottom Section - Stats */}
             <div className={styles.goalInfo}>
                 <StatDisplay size="lg" data={{
-                    name: "Total Sets", 
+                    name: store.language === Languages.English ? "Total Sets" : "Ensembles Totaux", 
                     value: props.data.sets.toString(),
                 }}/>
                 <StatDisplay size="lg" data={{
-                    name: "Reps (Per Set)", 
+                    name: store.language === Languages.English ? "Reps (Per Set)" : "Réps. (Par Ensemble)", 
                     value: props.data.reps.toString(),
                 }}/>
             </div>

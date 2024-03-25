@@ -3,10 +3,12 @@ import { usePathname, useRouter } from 'next/navigation';
 import styles from "./styles.module.css";
 import Link from "next/link";
 import Image from 'next/image';
+import store from '../../store';
 
 import logo from '../../../assets/logo.svg';
 import MyButton from '../button/Button';
 import { PersonCircle } from 'react-bootstrap-icons';
+import { Languages } from '../../store';
 
 
 
@@ -60,6 +62,13 @@ export default function Navbar() {
                 <h2 className={styles.health}>Health</h2>
                 <h2 className={styles.track}>Track</h2>
             </div>
+            <MyButton 
+                    onClick={() => store.toggleLanguage()}
+                    style={{backgroundColor: "rgba(96, 252, 162, 1)", fontFamily: 'sans-serif'}}
+                    size='sm'
+                >
+                {store.language === Languages.English ? "Francais" : "English"}
+            </MyButton>
         </div>
 
         {rightContent}
