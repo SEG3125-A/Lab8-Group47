@@ -6,12 +6,12 @@ import { At } from 'react-bootstrap-icons';
 import { Key } from 'react-bootstrap-icons';
 import styles from './styles.module.css';
 import MyButton from '../components/buttons/block/Button';
-
+import { observer } from 'mobx-react';
 import store from "../store";
 import { Languages } from '../store';
 
 
-export default function Login() {
+function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -89,4 +89,6 @@ export default function Login() {
       </div>
     );
 }
+
+export default observer(Login);
   

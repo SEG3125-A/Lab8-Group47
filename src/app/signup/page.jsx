@@ -8,8 +8,10 @@ import { Key } from 'react-bootstrap-icons';
 import MyButton from '../components/buttons/block/Button';
 import store from '../store.ts';
 import { Languages } from "../store.ts";
+import { observer } from 'mobx-react';
 
-export default function SignUp() {
+
+function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -118,4 +120,5 @@ export default function SignUp() {
     </div>
   );
 }
-  
+
+export default observer(SignUp);
