@@ -1,6 +1,8 @@
 "use client"
 
 import styles from './styles.module.css';
+import store from '../store.ts'
+import Languages from '../store.ts'
 
 export default function Home() {
   return (
@@ -15,9 +17,10 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.descriptionText}>
-        <p style={{fontFamily: 'sans-serif'}}>
-          Sign up and start your fitness journey today!
-        </p>
+      <p style={{fontFamily: 'sans-serif'}}>
+        {store.language === Languages.English ? "Sign up and start your fitness journey today!" : "Inscrivez-vous et commencez votre parcours de remise en forme dès aujourd'hui !"}
+      </p>
+
       </div>
   </div>
   );
