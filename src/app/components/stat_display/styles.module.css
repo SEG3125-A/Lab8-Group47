@@ -13,7 +13,7 @@
 .name_lg {
     color: rgba(161, 171, 185, 1);
     font-family: 'Inter';
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     text-transform: uppercase;
 }
@@ -21,7 +21,7 @@
 .value_lg {
     color: rgba(62, 70, 83, 1);
     font-family: 'Inter';
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 600;
 }
 
@@ -41,7 +41,7 @@
 .name_sm {
     color: rgba(161, 171, 185, 1);
     font-family: 'Inter';
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     text-transform: uppercase;
 }
@@ -49,7 +49,7 @@
 .value_sm {
     color: rgba(62, 70, 83, 1);
     font-family: 'Inter';
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
 }
 
