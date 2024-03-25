@@ -1,13 +1,13 @@
 "use client"
 import React, { ReactNode, useState } from 'react';
 import styles from './styles.module.css'; // Import external CSS file
-import store, { Exercises } from '../../store'
+import store, { ExerciseType, EXERCISES } from '../../store'
 import { observer } from 'mobx-react';
 
 
 function NewGoal() {
 
-    const [exercise, setExercise] = useState(Exercises.Pushups);
+    const [exercise, setExercise] = useState(EXERCISES[0]);
     const [sets, setSets] = useState(0);
     const [reps, setReps] = useState(0);
 
@@ -45,9 +45,9 @@ function NewGoal() {
 
         {/* Dropdown */}
         <div className={styles.dropdownContainer}>
-        <select className={styles.dropdown} value={exercise} onChange={handleExerciseChange}>
-            {Object.entries(Exercises).map(([key, value]) => 
-                <option value={value} key={key}>{value}</option>
+        <select className={styles.dropdown} value={exercise[store.language]} onChange={handleExerciseChange}>
+            {EXERCISES.map((e) => 
+                <option value={e.English} key={e.id}>{e[store.language]}</option>
             )}
         </select>
 
