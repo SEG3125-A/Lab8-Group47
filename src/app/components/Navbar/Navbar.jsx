@@ -27,14 +27,14 @@ function Navbar() {
                     style={{backgroundColor: "rgba(49, 233, 178, 1)", fontFamily: 'sans-serif'}}
                     size='sm'
                 >
-                    Login
+                    {store.language === Languages.English ? "Login" : "Se connecter"}
                 </MyButton>
                 <MyButton 
                     onClick={() => router.push('/signup')}
                     style={{backgroundColor: "rgba(96, 252, 162, 1)", fontFamily: 'sans-serif'}}
                     size='sm'
                 >
-                    Sign Up
+                    {store.language === Languages.English ? "Sign-up" : "Inscriri"}
                 </MyButton>
             </div>
         )
@@ -42,8 +42,12 @@ function Navbar() {
     } else {
         rightContent = (
             <div className={styles.right}>
-                <Link href="/goals" className={pathname === '/goals' ? styles.activeLink : styles.link}>Goals</Link>
-                <Link href="/workouts" className={pathname === '/workouts' ? styles.activeLink : styles.link}>Workouts</Link>
+                <Link href="/goals" className={pathname === '/goals' ? styles.activeLink : styles.link}>
+                    {store.language === Languages.English ? "Goals" : "Objectifs"}
+                </Link>
+                <Link href="/workouts" className={pathname === '/workouts' ? styles.activeLink : styles.link}>
+                    {store.language === Languages.English ? "Workouts" : "Séances d'entraînement"}
+                </Link>
                 <Link href="/account" className={styles.iconContainer}>
                     <PersonCircle className={pathname === '/account' ? styles.activeIconLink : styles.iconLink} />
                 </Link>
