@@ -6,6 +6,7 @@ import { At } from 'react-bootstrap-icons';
 import { Key } from 'react-bootstrap-icons';
 import styles from './styles.module.css';
 import MyButton from '../components/buttons/block/Button';
+import PasswordField from "../components/text_fields/password_field/PasswordField";
 
 import store from "../store";
 import { Languages } from '../store';
@@ -34,8 +35,8 @@ export default function Login() {
       setUsername(event.target.value);
     };
 
-    const handlePasswordChange = (event) => {
-      setPassword(event.target.value);
+    const handlePasswordChange = (value) => {
+        setPassword(value);
     };
 
     return (
@@ -58,20 +59,10 @@ export default function Login() {
                   <div className={styles.underline}/>
                 </div>
               </div>
-              <div className={styles.passwordField}>
-                <div className={styles.label}>PASSWORD</div>
-                  <div className={styles.selectionBox}>
-                    <div className={styles.boxContent}>
-                        <div className={styles.symbol}>
-                          <Key size="24"/>
-                        </div>
-                        <div className={styles.textBox}>
-                          <input className={styles.input} autoComplete="off" placeholder={store.language === Languages.English ? "Password" : "Mot de Passe"} value={password} onChange={handlePasswordChange}></input>
-                        </div>
-                    </div>
-                    <div className={styles.underline}/>
-                  </div>
-              </div>
+            
+            
+            <PasswordField onChange={(v) => handlePasswordChange(v)} value={password}/>
+            
             </div>
             <div className={styles.buttonView}>
               <MyButton 

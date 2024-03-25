@@ -6,6 +6,7 @@ import './styles.module.css';
 import { At } from 'react-bootstrap-icons';
 import { Key } from 'react-bootstrap-icons';
 import MyButton from '../components/buttons/block/Button';
+import PasswordField from "../components/text_fields/password_field/PasswordField";
 import store from '../store.ts';
 import { Languages } from "../store.ts";
 
@@ -38,12 +39,12 @@ export default function SignUp() {
     setUsername(event.target.value);
   };
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+  const handlePasswordChange = (value) => {
+    setPassword(value);
   };
 
-  const handlePasswordConfirmChange = (event) => {
-    setPasswordConfirm(event.target.value);
+  const handlePasswordConfirmChange = (value) => {
+    setPasswordConfirm(value);
   };
 
   return (
@@ -70,38 +71,15 @@ export default function SignUp() {
                 <div className={styles.underline}/>
               </div>
             </div>
-            <div className={styles.passwordField}>
-              <div className={styles.label}>
-                {store.language === Languages.English ? "PASSWORD" : "MOT DE PASSE"}
-              </div>
-              <div className={styles.selectionBox}>
-                <div className={styles.boxContent}>
-                    <div className={styles.symbol}>
-                      <Key size="24"/>
-                    </div>
-                    <div className={styles.textBox}>
-                      <input className={styles.input} autoComplete="off" placeholder="Password" value={password} onChange={handlePasswordConfirmChange}></input>
-                    </div>
-                </div>
-                <div className={styles.underline}/>
-              </div>
-            </div>
-            <div className={styles.passwordField}>
-              <div className={styles.label}>
-                {store.language === Languages.English ? " CONFIRM PASSWORD" : "Confirmez le mot de passe"}
-              </div>
-                <div className={styles.selectionBox}>
-                  <div className={styles.boxContent}>
-                      <div className={styles.symbol}>
-                        <Key size="24"/>
-                      </div>
-                      <div className={styles.textBox}>
-                        <input className={styles.input} autoComplete="off" placeholder="Password" value={password}></input>
-                      </div>
-                  </div>
-                  <div className={styles.underline}/>
-                </div>
-            </div>
+
+            <PasswordField onChange={(v) => handlePasswordChange(v)} value={password}/>
+            
+            <PasswordField 
+                onChange={(v) => handlePasswordConfirmChange(v)} 
+                value={passwordConfirm} 
+                label={{english: "CONFIRM PASSWORD", french: "Confirmez le mot de passe"}}
+            />
+
           </div>
           <div className={styles.buttonView}>
             <MyButton 
