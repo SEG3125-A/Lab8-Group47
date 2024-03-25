@@ -107,10 +107,17 @@ const getGoal = (goals: IGoal[], id: number): IGoal => {
 }
 
 
+
+
 // **************************
 // -------- WORKOUTS --------
 // **************************
-
+export interface INewWorkout {
+    exerciseType: ExerciseType;
+    sets: number;
+    reps: number;
+    dateTime: Date;
+}
 export interface IWorkout {
     id: number;
     exerciseType: ExerciseType;
@@ -119,7 +126,25 @@ export interface IWorkout {
     dateTime: Date;
 }
 
+// Returns the full array of workouts, with the new workout appended with a unique ID automatically assigned
+const addWorkout = (workouts: IWorkout[], newWorkout: INewWorkout): IWorkout[] => [
+    ...workouts,
+    {
+        id: Math.max(0, Math.max(...workouts.map(({ id }) => id))) + 1,
+        exerciseType: newWorkout.exerciseType,
+        sets: newWorkout.sets,
+        reps: newWorkout.reps,
+        dateTime: newWorkout.dateTime,
+    }
+];
 
+const deleteWorkout = (workouts: IWorkout[], id: number): IWorkout[] => {
+    return workouts.filter((workout) => workout.id !== id)
+}
+
+const getWorkout = (workouts: IWorkout[], id: number): IWorkout => {
+    return workouts.filter((workout) => workout.id === id)[0];
+}
 
 
 // ------ MobX implementation ------
@@ -131,6 +156,9 @@ class Store {
 
     goals: IGoal[] = [];
     newGoal: INewGoal = null;
+
+    workouts: IWorkout[] = [];
+    newWorkout: INewWorkout = null;
 
     constructor() {
         makeAutoObservable(this);
@@ -155,6 +183,13 @@ class Store {
         }
     }
 
+    addWorkout() {
+        if (this.newWorkout) {
+            this.workouts = addWorkout(this.workouts, this.newWorkout);
+            this.newWorkout = null;
+        }
+    }
+
     updateGoal(updatedGoal: IGoal) {
         console.log("Attempting update");
         let goal = this.goals.find((goal) => goal.id == updatedGoal.id);
@@ -170,11 +205,22 @@ class Store {
         this.goals = deleteGoal(this.goals, id);
     }
 
+    deleteWorkout(id: number) {
+        this.workouts = deleteWorkout(this.workouts, id);
+    }
+
     getGoal(id:number) {
         console.log("Attempting to get goal: " + id);
         let goal = getGoal(this.goals, id);
         console.log("Found goal: " + goal);
         return goal;
+    }
+
+    getWorkout(id:number) {
+        console.log("Attempting to get workout: " + id);
+        let workout = getWorkout(this.workouts, id);
+        console.log("Found goal: " + workout);
+        return workout;
     }
 
     toggleLanguage() {
@@ -190,4 +236,11 @@ class Store {
 }
 
 const store = new Store();
+
+makePersistable(store, {
+    name: 'HealthTrak Store', // Name your store (optional)
+    properties: ['users', 'goals', 'workouts'], // Specify which properties of your store should be persisted
+    storage: window.localStorage // Choose the storage mechanism (e.g., localStorage)
+});
+
 export default store;
