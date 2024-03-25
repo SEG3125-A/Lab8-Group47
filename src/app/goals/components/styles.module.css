@@ -1,0 +1,72 @@
+
+.goal {
+  position: relative;
+  width: 400px;
+  height: fit-content;
+  border-radius: 16px;
+  background-color: rgba(253, 253, 253, 0.7);
+  /* box-shadow: 0px 6px 4px 4px rgba(0, 0, 0, 0.1); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  padding: 32px 20px;
+  flex-wrap: nowrap;
+}
+
+
+/* Top Section - Title and Progress Ring */
+
+.visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.exerciseType {
+    max-width: 100%;
+    max-height: 100%;
+
+    /* Position is fixed and centered within the parent div */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.exerciseType h3 {
+    max-width: 100%;
+    max-height: 100%;
+    color: rgba(62, 70, 83, 1);
+    font-family: 'Inter';
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+}
+
+.goalRing {
+    position: relative; 
+    width: 240px;
+    height: 240px;
+    border-radius: 300px;
+    border: 36px solid rgba(63, 233, 201, 1);
+}
+
+
+/* Bottom Section - Stats */
+
+.goalInfo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 0px 32px;
+    flex-wrap: nowrap;
+}
+

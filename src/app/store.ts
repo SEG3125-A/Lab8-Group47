@@ -13,14 +13,14 @@ export enum Exercises {
 // ***********************
 
 // User that has not yet been assigned a unique ID
-export interface NewUser {
+export interface INewUser {
     email: string;
     password: string;
     createdOn: Date;
 }
 
 // User that has been assigned a unique ID
-export interface User {
+export interface IUser {
     id: number;
     email: string;
     password: string;
@@ -28,7 +28,7 @@ export interface User {
 }
 
 // Returns the full array of users, with the new user appended with a unique ID automatically assigned
-const addUser = (users: User[], newUser: NewUser): User[] => [
+const addUser = (users: IUser[], newUser: INewUser): IUser[] => [
     ...users,
     {
         id: Math.max(0, Math.max(...users.map(({ id }) => id))) + 1,
@@ -45,14 +45,14 @@ const addUser = (users: User[], newUser: NewUser): User[] => [
 // ***********************
 
 // Goal that has not yet been assigned a unique ID
-export interface NewGoal {
+export interface INewGoal {
     exerciseType: Exercises;
     sets: number;
     reps: number;
 }
 
 // Goal that has been assigned a unique ID
-export interface Goal {
+export interface IGoal {
     id: number;
     exerciseType: Exercises;
     sets: number;
@@ -60,7 +60,7 @@ export interface Goal {
 }
 
 // Returns the full array of users, with the new user appended with a unique ID automatically assigned
-const addGoal = (goals: Goal[], newGoal: NewGoal): Goal[] => [
+const addGoal = (goals: IGoal[], newGoal: INewGoal): IGoal[] => [
     ...goals,
     {
         id: Math.max(0, Math.max(...goals.map(({ id }) => id))) + 1,
@@ -76,7 +76,7 @@ const addGoal = (goals: Goal[], newGoal: NewGoal): Goal[] => [
 // -------- WORKOUTS --------
 // **************************
 
-export interface Workout {
+export interface IWorkout {
     id: number;
     exerciseType: Exercises;
     sets: number;
@@ -90,11 +90,31 @@ export interface Workout {
 // ------ MobX implementation ------
 
 class Store {
-    users: User[] = [];
-    newUser: NewUser = null;
+    users: IUser[] = [];
+    newUser: INewUser = null;
 
-    goals: Goal[]
-    newGoal: NewGoal = null;
+    // Temp starting data (TODO: Remove once adding/removing goals is working)
+    goals: IGoal[] = [
+        {
+            id: 0,
+            exerciseType: Exercises.Pushups,
+            sets: 5,
+            reps: 15,
+        }, 
+        {
+            id: 1,
+            exerciseType: Exercises.Situps,
+            sets: 10,
+            reps: 25,
+        },
+        {
+            id: 2,
+            exerciseType: Exercises.Squats,
+            sets: 10,
+            reps: 25,
+        }
+    ];
+    newGoal: INewGoal = null;
 
     constructor() {
         makeAutoObservable(this);
