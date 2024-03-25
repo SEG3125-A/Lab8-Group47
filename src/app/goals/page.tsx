@@ -3,7 +3,8 @@
 import React from 'react';
 import styles from './styles.module.css';
 import Link from 'next/link';
-import store from '../store'
+import store from '../store';
+import { Languages } from '../store';
 
 import Goal from './components/goal';
 import { Plus } from 'react-bootstrap-icons';
@@ -19,7 +20,9 @@ import { observer } from 'mobx-react';
 
     return (
         <div className={styles.body}>
-            <h2>My Goals</h2>
+            <h2>
+                {store.language === Languages.English ? "My Goals" : "Mes objectifs"}
+            </h2>
 
             {/* Map through the goals array and render each goal */}
             <div className={styles.goals}>
