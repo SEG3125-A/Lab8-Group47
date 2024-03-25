@@ -71,6 +71,7 @@ export default function Workout(props: WorkoutProps) {
               </div>
             </div>
           </div>
+          {/*TODO: Make buttons funcitonal */}
           <div className={styles.buttonView} >
             <div className={styles.editButton} >
               <FontAwesomeIcon icon={faCog} />          
