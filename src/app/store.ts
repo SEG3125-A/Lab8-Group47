@@ -7,7 +7,7 @@ import { makePersistable } from "mobx-persist-store";
 //     Squats = "Squats",
 // }
 
-export const exercises = [
+export const EXERCISES = [
     {
         id: 0,
         English: "Push-Ups",

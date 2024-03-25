@@ -4,11 +4,12 @@ import styles from "./styles.module.css";
 import Link from "next/link";
 import Image from 'next/image';
 import store from '../../store';
-
+import { Languages } from '../../store';
 import logo from '../../../assets/logo.svg';
 import MyButton from '../button/Button';
 import { PersonCircle } from 'react-bootstrap-icons';
-import { Languages } from '../../store';
+
+import { useEffect } from 'react';
 
 
 
@@ -44,7 +45,6 @@ export default function Navbar() {
             <div className={styles.right}>
                 <Link href="/goals" className={pathname === '/goals' ? styles.activeLink : styles.link}>Goals</Link>
                 <Link href="/workouts" className={pathname === '/workouts' ? styles.activeLink : styles.link}>Workouts</Link>
-                {/* <Link href="/progress">Progress</Link> */}
                 <Link href="/account" className={styles.iconContainer}>
                     <PersonCircle className={pathname === '/account' ? styles.activeIconLink : styles.iconLink} />
                 </Link>

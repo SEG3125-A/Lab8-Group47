@@ -7,9 +7,8 @@ import { Key } from 'react-bootstrap-icons';
 import styles from './styles.module.css';
 import MyButton from '../components/button/Button.tsx';
 
-
-
-
+import store from "../store";
+import { Languages } from '../store';
 
 
 export default function Login() {
@@ -42,7 +41,7 @@ export default function Login() {
     return (
       <div className={styles.pageBody}>
         <div className={styles.alignment}>
-          <div className={styles.mainText}>Login to Your Account</div> 
+          <div className={styles.mainText}>{store.language === Languages.English ? "Login to Your Account" : "Connectez-vous à votre compte"}</div> 
           <div className={styles.loginBox}>
             <div className={styles.textFields}>
               <div className={styles.emailField}>
@@ -53,7 +52,7 @@ export default function Login() {
                       <At size="24"/>
                     </div>
                     <div className={styles.textBox}>
-                      <input type="text" className={styles.input} autoComplete="off" placeholder="Username" value={username} onChange={handleUsernameChange} />
+                      <input type="text" className={styles.input} autoComplete="off" placeholder={store.language === Languages.English ? "Username" : "Nom d'utilisateur"} value={username} onChange={handleUsernameChange} />
                     </div>
                   </div>
                   <div className={styles.underline}/>
@@ -67,7 +66,7 @@ export default function Login() {
                           <Key size="24"/>
                         </div>
                         <div className={styles.textBox}>
-                          <input className={styles.input} autoComplete="off" placeholder="Password" value={password} onChange={handlePasswordChange}></input>
+                          <input className={styles.input} autoComplete="off" placeholder={store.language === Languages.English ? "Password" : "Mot de Passe"} value={password} onChange={handlePasswordChange}></input>
                         </div>
                     </div>
                     <div className={styles.underline}/>
@@ -79,11 +78,11 @@ export default function Login() {
                 onClick={handleSubmit}
                 style={{backgroundColor: "rgba(49, 233, 178, 1)", fontFamily: 'sans-serif'}}
                 size='lg'
-              > LOGIN </MyButton>
+              > {store.language === Languages.English ? "LOGIN" : "CONNECTER"}</MyButton>
               <MyButton 
-              onClick={() => router.push('/signup')}                style={{backgroundColor: "#60FCA2", fontFamily: 'sans-serif'}}
+              onClick={() => router.push('/signup')} style={{backgroundColor: "#60FCA2", fontFamily: 'sans-serif'}}
                 size='sm'
-              > SIGN-UP </MyButton>
+              > {store.language === Languages.English ? "SIGN-UP" : "INSCRIRE"} </MyButton>
             </div>
           </div>
         </div>
