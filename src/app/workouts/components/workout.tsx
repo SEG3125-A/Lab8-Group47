@@ -1,10 +1,12 @@
 import React from "react";
 import styles from "./styles.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { Trash } from 'react-bootstrap-icons';
 import StatDisplay from "../../components/stat_display/StatDisplay";
 import store from '../../store';
 import { Languages } from "../../store";
+import MyButton from "../../components/button/Button";
+import router from "next/router";
 
 export type WorkoutData = {
     date: string;
@@ -73,11 +75,14 @@ export default function Workout(props: WorkoutProps) {
           </div>
           {/*TODO: Make buttons funcitonal */}
           <div className={styles.buttonView} >
-            <div className={styles.editButton} >
-              <FontAwesomeIcon icon={faCog} />          
-            </div>
             <div className={styles.deleteButton} >
-              <FontAwesomeIcon icon={faTrashAlt} />
+              <MyButton 
+                onClick={() => router.push('/signup')}
+                style={{backgroundColor: "rgba(96, 252, 162, 1)", fontFamily: 'sans-serif'}}
+                size='sm'
+              >
+                {store.language === Languages.English ? "Sign-up" : "Inscriri"}
+              </MyButton>
             </div>
           </div>
         </div>
