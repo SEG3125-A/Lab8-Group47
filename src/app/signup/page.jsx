@@ -9,8 +9,10 @@ import MyButton from '../components/buttons/block/Button';
 import PasswordField from "../components/text_fields/password_field/PasswordField";
 import store from '../store.ts';
 import { Languages } from "../store.ts";
+import { observer } from 'mobx-react';
 
-export default function SignUp() {
+
+function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -96,4 +98,5 @@ export default function SignUp() {
     </div>
   );
 }
-  
+
+export default observer(SignUp);
