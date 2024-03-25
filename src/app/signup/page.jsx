@@ -42,10 +42,12 @@ function SignUp() {
   };
 
   const handlePasswordChange = (value) => {
+    // console.log("PW: " + value);
     setPassword(value);
   };
 
   const handlePasswordConfirmChange = (value) => {
+    // console.log("PW: " + value);
     setPasswordConfirm(value);
   };
 

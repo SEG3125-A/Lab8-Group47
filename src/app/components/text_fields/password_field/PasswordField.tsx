@@ -62,6 +62,7 @@ function PasswordField(props: PasswordFieldProps) {
                     <Input className={styles.input}
                         autoComplete="off" 
                         placeholder={placeholderText} 
+                        type="password"
                     />
                 </div>
             </div>
