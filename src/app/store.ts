@@ -1,12 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { makePersistable } from "mobx-persist-store";
 
-// export type Exercises {
-//     Pushups = "Push-Ups",
-//     Situps = "Sit-Ups",
-//     Squats = "Squats",
-// }
-
 export const EXERCISES = [
     {
         id: 0,
@@ -16,7 +10,7 @@ export const EXERCISES = [
     {
         id: 1,
         English: "Sit-Ups",
-        French: "Redressements assis",
+        French: "Redress. assis",
     },
     {
         id: 2,
@@ -129,7 +123,20 @@ class Store {
     users: IUser[] = [];
     newUser: INewUser = null;
 
-    goals: IGoal[] = [];
+    goals: IGoal[] = [
+        {
+            id: 0,
+            exercise: EXERCISES[0],
+            sets: 10,
+            reps: 20,
+        },
+        {
+            id: 1,
+            exercise: EXERCISES[1],
+            sets: 15,
+            reps: 25,
+        },
+    ];
     newGoal: INewGoal = null;
 
     constructor() {

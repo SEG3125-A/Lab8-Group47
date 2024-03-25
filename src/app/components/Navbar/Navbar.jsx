@@ -6,14 +6,13 @@ import Image from 'next/image';
 import store from '../../store';
 import { Languages } from '../../store';
 import logo from '../../../assets/logo.svg';
-import MyButton from '../button/Button';
+import MyButton from '../buttons/block/Button';
 import { PersonCircle } from 'react-bootstrap-icons';
-
-import { useEffect } from 'react';
-
+import { observer } from 'mobx-react';
 
 
-export default function Navbar() {
+
+function Navbar() {
     
     const router = useRouter()
     const pathname = usePathname();
@@ -77,3 +76,5 @@ export default function Navbar() {
 
     );
 }
+
+export default observer(Navbar);
