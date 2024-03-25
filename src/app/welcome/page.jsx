@@ -1,10 +1,11 @@
 "use client"
 
 import styles from './styles.module.css';
-import store from '../store.ts'
-import Languages from '../store.ts'
+import store from '../store'
+import Languages from '../store'
+import { observer } from 'mobx-react';
 
-export default function Home() {
+function Home() {
   return (
     <div className={styles.pageBody}>
       <div className={styles.mainText} >
@@ -18,10 +19,12 @@ export default function Home() {
       </div>
       <div className={styles.descriptionText}>
       <p style={{fontFamily: 'sans-serif'}}>
-        {store.language === Languages.English ? "Sign up and start your fitness journey today!" : "Inscrivez-vous et commencez votre parcours de remise en forme dès aujourd'hui !"}
+      {store.language === Languages.English ? "Inscrivez-vous et commencez votre parcours de remise en forme dès aujourd'hui !" : "Sign up and start your fitness journey today!"} {/*??????????? */}
       </p>
 
       </div>
   </div>
   );
 }
+
+export default observer(Home);
