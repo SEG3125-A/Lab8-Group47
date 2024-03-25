@@ -3,6 +3,9 @@ import styles from "./styles.module.css";
 import { ExerciseType, Languages } from "../../store";
 import store from "../../store";
 import StatDisplay from "../../components/stat_display/StatDisplay";
+import { observer } from "mobx-react";
+import IconButton from "../../components/buttons/icon/Button";
+import { Trash } from 'react-bootstrap-icons';
 
 
 export type GoalData = {
@@ -16,10 +19,19 @@ export type GoalProps = {
     data: GoalData;
 }
 
-export default function Goal(props: GoalProps) {
+function Goal(props: GoalProps) {
     
+    const handleDeleteClick = (event) => {
+        
+    };
+  
+
     return (
         <div className={styles.goal}>
+
+            <IconButton className={styles.deleteButton} onClick={() => handleDeleteClick}>
+                <Trash className={styles.deleteButtonIcon}/>
+            </IconButton>
 
             {/* Top Section - Title and Progress Ring */}
             <div className={styles.visual}>
@@ -46,3 +58,5 @@ export default function Goal(props: GoalProps) {
         </div>
     );
 }
+
+export default observer(Goal);
