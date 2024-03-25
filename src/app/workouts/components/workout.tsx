@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./styles.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import StatDisplay from "../../components/stat_display/StatDisplay";
 
 export type WorkoutData = {
     date: string;
@@ -21,20 +22,26 @@ export default function Workout(props: WorkoutProps) {
     return (
         <div className={styles.workout} >
           <div className={styles.workoutInformation} >
+            {/* <StatDisplay size="sm" data={{
+                name: "Date",
+                value: "2024-03-10",
+            }}/> */}
+
             <div className={styles.informationEntry} >
               <div className={styles.informationEntryLabel} >
                 Date
               </div>
               <div className={styles.informationEntryValue} >
-                2024-03-10
+                {props.data.date}
               </div>
             </div>
+
             <div className={styles.informationEntry} >
               <div className={styles.informationEntryLabel} >
                 TIME (START)
               </div>
               <div className={styles.informationEntryValue} >
-                3:00PM
+                {props.data.time}
               </div>
             </div>
             <div className={styles.informationEntry} >
@@ -42,7 +49,7 @@ export default function Workout(props: WorkoutProps) {
                 EXERCISE
               </div>
               <div className={styles.informationEntryValue} >
-                Push Ups
+                {props.data.exercise}
               </div>
             </div>
             <div className={styles.informationEntry} >
@@ -50,7 +57,7 @@ export default function Workout(props: WorkoutProps) {
                 SETS
               </div>
               <div className={styles.informationEntryValue} >
-                4
+                {props.data.sets}
               </div>
             </div>
             <div className={styles.informationEntry} >
@@ -58,7 +65,7 @@ export default function Workout(props: WorkoutProps) {
                 REPS (PER SET)
               </div>
               <div className={styles.informationEntryValue} >
-                12
+                {props.data.reps}
               </div>
             </div>
           </div>

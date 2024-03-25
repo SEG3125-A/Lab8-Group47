@@ -1,13 +1,40 @@
 import { makeAutoObservable } from "mobx";
 import { makePersistable } from "mobx-persist-store";
 
-export enum Exercises {
-    Pushups = "Push-Ups",
-    Situps = "Sit-Ups",
-    Squats = "Squats",
+// export type Exercises {
+//     Pushups = "Push-Ups",
+//     Situps = "Sit-Ups",
+//     Squats = "Squats",
+// }
+
+export const EXERCISES = [
+    {
+        id: 0,
+        English: "Push-Ups",
+        French: "Pompes",
+    },
+    {
+        id: 1,
+        English: "Sit-Ups",
+        French: "Redressements assis",
+    },
+    {
+        id: 2,
+        English: "Squats",
+        French: "Squats",
+    }
+]
+
+export type ExerciseType = {
+    id: number;
+    English: string;
+    French: string;
 }
 
-
+export enum Languages {
+    English = "English",
+    French = "French",
+}
 
 // ***********************
 // -------- USERS --------
@@ -47,7 +74,7 @@ const addUser = (users: IUser[], newUser: INewUser): IUser[] => [
 
 // Goal that has not yet been assigned a unique ID
 export interface INewGoal {
-    exerciseType: Exercises;
+    exerciseType: ExerciseType;
     sets: number;
     reps: number;
 }
@@ -55,7 +82,7 @@ export interface INewGoal {
 // Goal that has been assigned a unique ID
 export interface IGoal {
     id: number;
-    exerciseType: Exercises;
+    exercise: ExerciseType;
     sets: number;
     reps: number;
 }
@@ -65,7 +92,7 @@ const addGoal = (goals: IGoal[], newGoal: INewGoal): IGoal[] => [
     ...goals,
     {
         id: Math.max(0, Math.max(...goals.map(({ id }) => id))) + 1,
-        exerciseType: newGoal.exerciseType, 
+        exercise: newGoal.exerciseType, 
         sets: newGoal.sets, 
         reps: newGoal.reps
     }
@@ -86,7 +113,7 @@ const getGoal = (goals: IGoal[], id: number): IGoal => {
 
 export interface IWorkout {
     id: number;
-    exerciseType: Exercises;
+    exerciseType: ExerciseType;
     sets: number;
     reps: number;
     dateTime: Date;
@@ -98,6 +125,7 @@ export interface IWorkout {
 // ------ MobX implementation ------
 
 class Store {
+    language: Languages = Languages.English;
     users: IUser[] = [];
     newUser: INewUser = null;
 
@@ -106,7 +134,11 @@ class Store {
 
     constructor() {
         makeAutoObservable(this);
-        makePersistable(this, { name: 'Store', properties: ['users', 'goals'], storage: window.localStorage})
+        // makePersistable(this, { 
+        //     name: 'Store', 
+        //     properties: ['users', 'goals'], 
+        //     storage: window.localStorage
+        // })
     }
 
     addUser() {
@@ -128,7 +160,7 @@ class Store {
         let goal = this.goals.find((goal) => goal.id == updatedGoal.id);
         goal = {
             id: goal.id,
-            exerciseType: updatedGoal.exerciseType,
+            exercise: updatedGoal.exercise,
             sets: updatedGoal.sets,
             reps: updatedGoal.reps,
         }
@@ -143,6 +175,16 @@ class Store {
         let goal = getGoal(this.goals, id);
         console.log("Found goal: " + goal);
         return goal;
+    }
+
+    toggleLanguage() {
+        console.log("Old language: " + this.language);
+        if (this.language === Languages.English) {
+            this.language = Languages.French
+        } else {
+            this.language = Languages.English
+        }
+        console.log("New language: " + this.language);
     }
 
 }

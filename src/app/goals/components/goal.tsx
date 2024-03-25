@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "./styles.module.css";
-import { Exercises } from "../../store";
+import { ExerciseType } from "../../store";
+import store from "../../store";
 import StatDisplay from "../../components/stat_display/StatDisplay";
 
 
 export type GoalData = {
-    exerciseType: Exercises;
+    exercise: ExerciseType;
     sets: number;
     reps: number;
 }
@@ -23,7 +24,7 @@ export default function Goal(props: GoalProps) {
             {/* Top Section - Title and Progress Ring */}
             <div className={styles.visual}>
                 <div className={styles.exerciseType}>
-                    <h3>{props.data.exerciseType}</h3>
+                    <h3>{props.data.exercise[store.language]}</h3>
                 </div>
                 <div className={styles.goalRing} />
             </div>
