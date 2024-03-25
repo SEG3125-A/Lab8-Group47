@@ -7,8 +7,9 @@ import store from '../store'
 
 import Goal from './components/goal';
 import { Plus } from 'react-bootstrap-icons';
+import { observer } from 'mobx-react';
 
-export default function Goals() {
+ function Goals() {
 
     // const deleteSomething = (index) => {
     //     goals.splice(index, 1);
@@ -34,3 +35,5 @@ export default function Goals() {
         </div>
     );
 }
+
+export default observer(Goals);

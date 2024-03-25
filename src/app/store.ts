@@ -1,4 +1,5 @@
 import { makeAutoObservable } from "mobx";
+import { makePersistable } from "mobx-persist-store";
 
 export enum Exercises {
     Pushups = "Push-Ups",
@@ -70,6 +71,13 @@ const addGoal = (goals: IGoal[], newGoal: INewGoal): IGoal[] => [
     }
 ];
 
+const deleteGoal = (goals: IGoal[], id: number): IGoal[] => {
+    return goals.filter((goal) => goal.id !== id)
+}
+
+const getGoal = (goals: IGoal[], id: number): IGoal => {
+    return goals.filter((goal) => goal.id === id)[0];
+}
 
 
 // **************************
@@ -93,31 +101,12 @@ class Store {
     users: IUser[] = [];
     newUser: INewUser = null;
 
-    // Temp starting data (TODO: Remove once adding/removing goals is working)
-    goals: IGoal[] = [
-        {
-            id: 0,
-            exerciseType: Exercises.Pushups,
-            sets: 5,
-            reps: 15,
-        }, 
-        {
-            id: 1,
-            exerciseType: Exercises.Situps,
-            sets: 10,
-            reps: 25,
-        },
-        {
-            id: 2,
-            exerciseType: Exercises.Squats,
-            sets: 10,
-            reps: 25,
-        }
-    ];
+    goals: IGoal[] = [];
     newGoal: INewGoal = null;
 
     constructor() {
         makeAutoObservable(this);
+        makePersistable(this, { name: 'Store', properties: ['users', 'goals'], storage: window.localStorage})
     }
 
     addUser() {
@@ -133,6 +122,29 @@ class Store {
             this.newGoal = null;
         }
     }
+
+    updateGoal(updatedGoal: IGoal) {
+        console.log("Attempting update");
+        let goal = this.goals.find((goal) => goal.id == updatedGoal.id);
+        goal = {
+            id: goal.id,
+            exerciseType: updatedGoal.exerciseType,
+            sets: updatedGoal.sets,
+            reps: updatedGoal.reps,
+        }
+    }
+    
+    deleteGoal(id: number) {
+        this.goals = deleteGoal(this.goals, id);
+    }
+
+    getGoal(id:number) {
+        console.log("Attempting to get goal: " + id);
+        let goal = getGoal(this.goals, id);
+        console.log("Found goal: " + goal);
+        return goal;
+    }
+
 }
 
 const store = new Store();

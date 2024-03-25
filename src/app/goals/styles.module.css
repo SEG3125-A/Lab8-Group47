@@ -4,7 +4,7 @@
     --side-margin: 92px;
 
     position: relative;
-    width: calc(100%);
+    width: 100%;
     height: calc(100% - var(--top-padding));
     display: flex;
     flex-direction: column;
@@ -36,6 +36,7 @@
     gap: 48px;
     flex-wrap: wrap;
     overflow-y: auto;
+    padding-bottom: 64px;
 }
 
 
