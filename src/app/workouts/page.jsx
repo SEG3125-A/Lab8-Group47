@@ -1,75 +1,39 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faCog } from '@fortawesome/free-solid-svg-icons';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 import styles from './styles.module.css';
+import Link from 'next/link';
+import store from '../store.ts'
 
+import Workout from './components/workout';
+import { Plus } from 'react-bootstrap-icons';
 
 export default function Workouts() {
+  const myWorkouts = {
+        date: "2024-03-25",
+        time: "10:00 AM",
+        exercise: "Push-ups",
+        sets: 3,
+        reps: 10
+  };
+
   return (
     <div className={styles.pageBody}>
-      <div className={styles.addWorkoutButton} >
-        <div className={styles.plusLogo} >
-          <FontAwesomeIcon icon={faPlus} />
-        </div>
-      </div>
       <div className={styles.mainText} >
           Workout History
       </div>
-      <div className="workoutView">
-      <div className={styles.workout} >
-        <div className={styles.workoutInformation} >
-          <div className={styles.informationEntry} >
-            <div className={styles.informationEntryLabel} >
-              Date
-            </div>
-            <div className={styles.informationEntryValue} >
-              2024-03-10
-            </div>
-          </div>
-          <div className={styles.informationEntry} >
-            <div className={styles.informationEntryLabel} >
-              TIME (START)
-            </div>
-            <div className={styles.informationEntryValue} >
-              3:00PM
-            </div>
-          </div>
-          <div className={styles.informationEntry} >
-            <div className={styles.informationEntryLabel} >
-              EXERCISE
-            </div>
-            <div className={styles.informationEntryValue} >
-              Push Ups
-            </div>
-          </div>
-          <div className={styles.informationEntry} >
-            <div className={styles.informationEntryLabel} >
-              SETS
-            </div>
-            <div className={styles.informationEntryValue} >
-              4
-            </div>
-          </div>
-          <div className={styles.informationEntry} >
-            <div className={styles.informationEntryLabel} >
-              REPS (PER SET)
-            </div>
-            <div className={styles.informationEntryValue} >
-              12
-            </div>
-          </div>
-        </div>
-        <div className={styles.buttonView} >
-          <div className={styles.editButton} >
-            <FontAwesomeIcon icon={faCog} />          
-          </div>
-          <div className={styles.deleteButton} >
-            <FontAwesomeIcon icon={faTrashAlt} />
-          </div>
-        </div>
+      <div className={styles.workoutView}>
+        <Workout data={myWorkouts} key={myWorkouts.reps} />
+        {/* Check if myWorkouts array is populated */}
+        {1 > 2 ? (
+          store.workouts.map((workout, index) => (
+            <Workout data={workout} key={workout.id}/>
+          ))
+        ) : (
+          <div className={styles.mainText}>Add your first workout!</div>
+        )}
       </div>
-     </div>
+      <Link href="/workouts/new" className={styles.newWorkout}>
+        <Plus className={styles.plusIcon}/>
+      </Link>
     </div>
   );
 }
