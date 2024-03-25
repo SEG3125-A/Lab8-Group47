@@ -2,28 +2,30 @@
 import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from 'next/navigation';
 import './styles.module.css';
+import { At } from 'react-bootstrap-icons';
+import { Key } from 'react-bootstrap-icons';
+import styles from './styles.module.css';
+import MyButton from '../components/button/Button.tsx';
+
+
+
+
+
+
 export default function Login() {
   const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [email, setEmail] = useState("");
-    const router = useRouter()
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const router = useRouter()
 
-    const handleSubmit = (event) => {
+  const handleSubmit = (event) => {
 
-      event.preventDefault();
+    console.log(
+      `Submitted username: ${username}, password: ${password}, email: ${email}`
+    );
+    router.push('/account');
 
-      
-      if (password.length == 0 || email.length == 0 || username.length == 0){
-        alert("One or more field(s) are empty");
-        return;
-      }
-
-      console.log(
-        `Submitted username: ${username}, password: ${password}, email: ${email}`
-      );
-      router.push('/account');
-
-    };
+  };
 
   const handleEmailChange = (event) => {
       setEmail(event.target.value);
@@ -38,21 +40,52 @@ export default function Login() {
     };
 
     return (
-      <div className="containerDiv">
-        <div>
-          <h1>
-          Login
-          </h1>
-        </div>
-        <div className="signupForm">
-          <form className="signup-form" action="" method="post" onSubmit={handleSubmit} >
-            <input type="email" className="input" id="user_email" autoComplete="off" placeholder="Email" value={email} onChange={handleEmailChange} />
-            <input type="text" className="input" id="user_name" autoComplete="off" placeholder="Username" value={username} onChange={handleUsernameChange} />
-            <input type="password" className="input" id="user_pass" autoComplete="off" placeholder="Password" value={password} onChange={handlePasswordChange}/>
-            <div className="buttonContainer">
-              <input type="submit" className="button" value="Login" />
+      <div className={styles.pageBody}>
+        <div className={styles.alignment}>
+          <div className={styles.mainText}>Login to Your Account</div> 
+          <div className={styles.loginBox}>
+            <div className={styles.textFields}>
+              <div className={styles.emailField}>
+                <div className={styles.label}>EMAIL</div>
+                <div className={styles.selectionBox}>
+                  <div className={styles.boxContent}>
+                    <div className={styles.symbol}>
+                      <At size="24"/>
+                    </div>
+                    <div className={styles.textBox}>
+                      <input type="text" className={styles.input} autoComplete="off" placeholder="Username" value={username} onChange={handleUsernameChange} />
+                    </div>
+                  </div>
+                  <div className={styles.underline}/>
+                </div>
+              </div>
+              <div className={styles.passwordField}>
+                <div className={styles.label}>PASSWORD</div>
+                  <div className={styles.selectionBox}>
+                    <div className={styles.boxContent}>
+                        <div className={styles.symbol}>
+                          <Key size="24"/>
+                        </div>
+                        <div className={styles.textBox}>
+                          <input className={styles.input} autoComplete="off" placeholder="Password" value={password} onChange={handlePasswordChange}></input>
+                        </div>
+                    </div>
+                    <div className={styles.underline}/>
+                  </div>
+              </div>
             </div>
-          </form>
+            <div className={styles.buttonView}>
+              <MyButton 
+                onClick={handleSubmit}
+                style={{backgroundColor: "rgba(49, 233, 178, 1)", fontFamily: 'sans-serif'}}
+                size='lg'
+              > LOGIN </MyButton>
+              <MyButton 
+              onClick={() => router.push('/signup')}                style={{backgroundColor: "#60FCA2", fontFamily: 'sans-serif'}}
+                size='sm'
+              > SIGN-UP </MyButton>
+            </div>
+          </div>
         </div>
       </div>
     );
