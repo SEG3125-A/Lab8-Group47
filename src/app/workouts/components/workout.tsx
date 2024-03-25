@@ -3,6 +3,8 @@ import styles from "./styles.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import StatDisplay from "../../components/stat_display/StatDisplay";
+import store from '../../store';
+import { Languages } from "../../store";
 
 export type WorkoutData = {
     date: string;
@@ -29,7 +31,7 @@ export default function Workout(props: WorkoutProps) {
 
             <div className={styles.informationEntry} >
               <div className={styles.informationEntryLabel} >
-                Date
+                {store.language === Languages.English ? "DATE" : "DATE"}
               </div>
               <div className={styles.informationEntryValue} >
                 {props.data.date}
@@ -38,7 +40,7 @@ export default function Workout(props: WorkoutProps) {
 
             <div className={styles.informationEntry} >
               <div className={styles.informationEntryLabel} >
-                TIME (START)
+                {store.language === Languages.English ? "TIME (START)" : "HEURE (DEBUT)"}
               </div>
               <div className={styles.informationEntryValue} >
                 {props.data.time}
@@ -46,7 +48,7 @@ export default function Workout(props: WorkoutProps) {
             </div>
             <div className={styles.informationEntry} >
               <div className={styles.informationEntryLabel} >
-                EXERCISE
+                {store.language === Languages.English ? "EXERCISE" : "EXERCICE"}
               </div>
               <div className={styles.informationEntryValue} >
                 {props.data.exercise}
@@ -54,7 +56,7 @@ export default function Workout(props: WorkoutProps) {
             </div>
             <div className={styles.informationEntry} >
               <div className={styles.informationEntryLabel} >
-                SETS
+                {store.language === Languages.English ? "SETS" : "ENSEMBLES"}
               </div>
               <div className={styles.informationEntryValue} >
                 {props.data.sets}
@@ -62,7 +64,7 @@ export default function Workout(props: WorkoutProps) {
             </div>
             <div className={styles.informationEntry} >
               <div className={styles.informationEntryLabel} >
-                REPS (PER SET)
+              {store.language === Languages.English ? "REPS (PER SET)" : "RÉPÉTITIONS (PAR SET)"}
               </div>
               <div className={styles.informationEntryValue} >
                 {props.data.reps}
