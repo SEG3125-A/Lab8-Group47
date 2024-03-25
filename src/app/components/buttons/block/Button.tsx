@@ -10,7 +10,7 @@ export type ButtonProps = {
     onClick: () => void;
 }
 
-export default function MyButton(props: ButtonProps) {
+export default function BlockButton(props: ButtonProps) {
     
     return (
         <Button

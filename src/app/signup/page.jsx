@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import './styles.module.css';
 import { At } from 'react-bootstrap-icons';
 import { Key } from 'react-bootstrap-icons';
-import MyButton from '../components/button/Button.tsx';
+import MyButton from '../components/buttons/block/Button';
 import store from '../store.ts';
 import { Languages } from "../store.ts";
 

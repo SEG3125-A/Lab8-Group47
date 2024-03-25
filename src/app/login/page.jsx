@@ -5,7 +5,7 @@ import './styles.module.css';
 import { At } from 'react-bootstrap-icons';
 import { Key } from 'react-bootstrap-icons';
 import styles from './styles.module.css';
-import MyButton from '../components/button/Button.tsx';
+import MyButton from '../components/buttons/block/Button';
 
 import store from "../store";
 import { Languages } from '../store';
@@ -26,7 +26,7 @@ export default function Login() {
 
   };
 
-  const handleEmailChange = (event) => {
+    const handleEmailChange = (event) => {
       setEmail(event.target.value);
     };
 
