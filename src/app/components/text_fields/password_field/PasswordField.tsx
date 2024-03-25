@@ -1,11 +1,12 @@
+"use client";
 import React from "react";
-import {TextField, Label, Input} from 'react-aria-components';
-import styles from "./styles.module.css";
-import { Key } from 'react-bootstrap-icons';
+import styles from "../styles.module.css";
 import store from "../../../store";
-import { Languages } from '../../../store';
 import { observer } from "mobx-react";
-
+import { Languages } from '../../../store';
+import { DisplayString } from "../../common_types";
+import {TextField, Label, Input} from 'react-aria-components';
+import { Key } from 'react-bootstrap-icons';
 
 export type PasswordFieldProps = {
     style?: React.CSSProperties;
@@ -15,12 +16,7 @@ export type PasswordFieldProps = {
     placeholder?: DisplayString;
 }
 
-export type DisplayString = {
-    english: string;
-    french: string;
-}
-
-function PasswordField(props: PasswordFieldProps) {
+export const PasswordField = observer((props: PasswordFieldProps) => {
 
     const textDefaults = {
         label: {
@@ -50,7 +46,7 @@ function PasswordField(props: PasswordFieldProps) {
     return (
         <TextField
             style={props.style}
-            className={styles.passwordField}
+            className={styles.typedTextField}
             onChange={props.onChange}
             value={props.value}
         >
@@ -68,6 +64,4 @@ function PasswordField(props: PasswordFieldProps) {
             </div>
         </TextField>
     );
-}
-
-export default observer(PasswordField);
+});

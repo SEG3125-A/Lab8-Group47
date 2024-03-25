@@ -1,8 +1,15 @@
+"use client";
 import React from "react";
 import styles from "./styles.module.css";
+import store from "../../store";
+import { observer } from "mobx-react";
+import { Languages } from "../../store";
 
 export type Statistic = {
-    name: string;
+    name: {
+        english: string;
+        french: string;
+    };
     value: string;
 }
 
@@ -25,9 +32,13 @@ export default function StatDisplay(props:StatDisplayProps) {
         value: props.size === 'sm' ? styles.value_sm : styles.value_lg,
     }
 
+    let name: string = store.language === Languages.English 
+        ? props.data.name.english
+        : props.data.name.french;
+
     return (
         <div className={sized_styles.main}>
-           <div className={sized_styles.name}>{props.data.name}</div>
+           <div className={sized_styles.name}>{name}</div>
            <div className={sized_styles.value}>{props.data.value}</div>
         </div>
     );

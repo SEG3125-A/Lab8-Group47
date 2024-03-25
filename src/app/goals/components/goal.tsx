@@ -24,7 +24,7 @@ function Goal(props: GoalProps) {
     const handleDeleteClick = (event) => {
         
     };
-  
+    
 
     return (
         <div className={styles.goal}>
@@ -44,11 +44,11 @@ function Goal(props: GoalProps) {
             {/* Bottom Section - Stats */}
             <div className={styles.goalInfo}>
                 <StatDisplay size="lg" data={{
-                    name: store.language === Languages.English ? "Total Sets" : "Ensembles Totaux", 
+                    name: {english: "Total Sets", french: "Ensembles Totaux"},
                     value: props.data.sets.toString(),
                 }}/>
                 <StatDisplay size="lg" data={{
-                    name: store.language === Languages.English ? "Reps (Per Set)" : "Réps. (Par Ensemble)", 
+                    name: {english: "Reps (Per Set)", french: "Réps. (Par Ensemble)"},
                     value: props.data.reps.toString(),
                 }}/>
             </div>
