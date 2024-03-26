@@ -1,0 +1,84 @@
+.numberField {
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 8px 4px;
+    padding: 0px;
+    flex-wrap: nowrap;
+}
+
+.label {
+    width: 100%;
+    height: fit-content;
+    color: rgba(161, 171, 185, 1);
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 16px;
+    font-weight: 300;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+
+.boxContent {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 0px;
+    flex-wrap: nowrap;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(127, 140, 140, 0.2);
+}
+
+.icon {
+    color: rgba(127, 140, 140, 1);
+    width: 16px;
+    height: 16px;
+}
+
+.textBox {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0px;
+    padding: 0px;
+    flex-wrap: nowrap;
+}
+
+.input {
+    width: 100%;
+    color: rgba(62, 70, 83, 1);
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.chevrons {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0px;
+    padding: 0px;
+    flex-wrap: nowrap;
+  }

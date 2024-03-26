@@ -7,7 +7,8 @@ export type ButtonProps = {
     children?: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;
-    onClick: () => void;
+    slot?: string;
+    onClick?: () => void;
 }
 
 export default function IconButton(props: ButtonProps) {
@@ -20,6 +21,7 @@ export default function IconButton(props: ButtonProps) {
     return (
         <Button
             style={props.style}
+            slot={props.slot}
             className={classNames}
             onPress={props.onClick}
         >
